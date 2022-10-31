@@ -25,19 +25,24 @@ namespace Program_WPF_API_z_NBP
             InitializeComponent();
         }
 
-        public static async Task Main()
+
+
+        private void button_Click(object sender, RoutedEventArgs e)
         {
-            var httpClient = new HttpClient()
+            static async Task Main()
             {
-                BaseAddress = new Uri("http://api.nbp.pl/api/")
-            };
-            var response = await httpClient.GetAsync("exchangerates/rates/A/USD");
-            var content = await response.Content.ReadAsStringAsync();
-            var rate = JsonConvert.DeserializeObject<TableRow>(content);
-            Console.Write(rate.Rates[0].Mid);
+                var httpClient = new HttpClient()
+                {
+                    BaseAddress = new Uri("http://api.nbp.pl/api/")
+                };
+                var response = await httpClient.GetAsync("exchangerates/rates/A/USD");
+                var content = await response.Content.ReadAsStringAsync();
+                var rate = JsonConvert.DeserializeObject<TableRow>(content);
+                Label.Content (rate.Rates[0].Mid);
+            }
         }
 
-        public class TableRow
+         class TableRow
         {
             public List<Rate> Rates { get; set; }
         }
@@ -47,9 +52,7 @@ namespace Program_WPF_API_z_NBP
             public decimal Mid { get; set; }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
-}
+    }
+
