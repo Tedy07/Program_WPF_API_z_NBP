@@ -23,12 +23,15 @@ namespace Program_WPF_API_z_NBP
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
 
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            Program;
+
             static async Task Main()
             {
                 var httpClient = new HttpClient()
@@ -54,5 +57,5 @@ namespace Program_WPF_API_z_NBP
 
 
     }
-    }
+}
 
