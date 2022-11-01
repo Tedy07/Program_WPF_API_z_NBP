@@ -35,5 +35,12 @@ public partial class MainWindow : Window
     {
         public decimal Mid { get; set; }
     }
+
+    private void button1_Click(object sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
 }
 
+// ver. 1.0 działający program z poprawkami Karola
+// ver.1.1 dodano button close
